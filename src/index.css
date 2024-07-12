@@ -1,13 +1,15 @@
 :root {
   --pear-can: #e6ffde;
-  --pear-logo: #03403f;
+  --pear-logo: #c1eb5f;
   --apple-can: #f2675a;
   --apple-logo: #ec4458;
   --exotic-can: #9590f1;
   --black-color: #000000;
   --white-color: #ffffff;
   --exotic-logo: #6464ff;
-  --pear-background: #c9e78a;
+  --four-logo: #aa4124;
+  --pear-background: #99ad6c;
   --apple-background: #ffb2b2;
   --exotic-background: #c1bff2;
+  --four-background: #612b1b;
 }
