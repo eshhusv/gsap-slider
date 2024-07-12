@@ -4,9 +4,7 @@ import gsap from 'gsap';
 
 function Gasp() {
     const [currentIndex, setCurrentIndex] = useState(0);
-    let [currentPosition, setCurrentPosition] = useState(0);
-    const [prevButtonAnimation, setPrevButtonAnimation] = useState('wave-pear-effect');
-    const [nextButtonAnimation, setNextButtonAnimation] = useState('wave-apple-effect');
+    const [currentPosition, setCurrentPosition] = useState(0);
 
     const h1Texts = ["Pear", "Apple", "Exotic"];
     let logoColors = [
@@ -14,7 +12,6 @@ function Gasp() {
         "var(--apple-logo)",
         "var(--exotic-logo)"
     ];
-    const keyframes = ["wave-pear-effect", "wave-apple-effect", "wave-exotic-effect"];
     const prevButtonRef = useRef<HTMLButtonElement>(null);
     const prevButton = document.getElementById("prevButton") as HTMLDivElement;
     const nextButtonRef = useRef<HTMLButtonElement>(null);
@@ -60,7 +57,7 @@ function Gasp() {
             nextButton.style.display = "block";
         }
 
-        // логика исчезновения кнопки prevButton
+        // логика скрытия кнопки prevButton
         if (currentIndex === 0 && prevButton !== null) {
             prevButton.style.display = "none";
         }
@@ -69,38 +66,32 @@ function Gasp() {
         if (currentIndex > 0 && prevButton !== null) {
             prevButton.style.display = "block";
         }
-
-        // добавляет animation-name, но с ним анимации ломаются
-        if (prevButtonRef.current && nextButtonRef.current) {
-            prevButtonRef.current.style.animationName = keyframes[currentIndex - 1];
-            nextButtonRef.current.style.animationName = keyframes[currentIndex + 1];
-        }
     }, [currentIndex]);
 
 
     const nextButtonClick = () => {
         if (currentPosition > -200) {
-            setCurrentPosition((currentPosition) => currentPosition - 100);
+            setCurrentPosition(currentPosition - 100);
             if (caneLabels !== null && sectionContainer !== null) {
                 caneLabels.style.left = `${currentPosition}%`;
                 sectionContainer.style.left = `${currentPosition}%`;
+            }
+
+            // ограничение на нажатие кнопки, чтобы не съезжали фркуты
+            const nextButtonCurrent = nextButtonRef.current;
+            if (nextButtonCurrent) {
+                nextButtonCurrent.setAttribute("disabled", "");
+                setTimeout(() => {
+                    nextButtonCurrent.removeAttribute("disabled");
+                }, 850);
             }
         }
 
         setCurrentIndex(currentIndex + 1);
 
-        // if (nextButton !== null) {
-        //     nextButton.style.color = logoColors[currentIndex + 1];
-        //     nextButton.style.animationName = keyframes[currentIndex + 1];
-        // }
-        // if (prevButton !== null) {
-        //     prevButton.style.color = logoColors[currentIndex - 1];
-        //     prevButton.style.animationName = keyframes[currentIndex - 1];
-        // }
-
         // появление фруктов сверху
         gsap.from(fruit_image.current, { y: "-100vh", delay: 0.5 });
-    }
+    };
     const prevButtonClick = () => {
         if (currentPosition < 0) {
             setCurrentPosition(currentPosition + 100);
@@ -109,13 +100,22 @@ function Gasp() {
                 sectionContainer.style.left = `${currentPosition}%`;
                 sectionContainer.style.transition = `all 0.5s ease-in-out`;
             }
+
+            // ограничение на нажатие кнопки, чтобы не съезжали фркуты
+            const prevButtonCurrent = prevButtonRef.current;
+            if (prevButtonCurrent) {
+                prevButtonCurrent.setAttribute("disabled", "");
+                setTimeout(() => {
+                    prevButtonCurrent.removeAttribute("disabled");
+                }, 850);
+            }
         }
 
         setCurrentIndex(currentIndex - 1);
 
         // появление фруктов снизу
         gsap.from(fruit_image.current, { y: "100vh", delay: 0.5 });
-    }
+    };
     return (
         <div className={styles.body}>
             <header>
@@ -125,9 +125,8 @@ function Gasp() {
             </header>
             <main>
                 <div>
-                    {/* между i нужно свг < и > поставить нормальную */}
-                    <button id="prevButton" ref={prevButtonRef} className={`${styles.wave} ${styles.prevButton}`} style={{ animationName: prevButtonAnimation }} onClick={() => { prevButtonClick(); setPrevButtonAnimation(keyframes[currentIndex - 1]); }}><i className={`${styles.fa_solid} ${styles.fa_chevron_left}`}></i></button>
-                    <button id="nextButton" ref={nextButtonRef} className={styles.wave} style={{ animationName: nextButtonAnimation }} onClick={() => { nextButtonClick(); setNextButtonAnimation(keyframes[currentIndex + 1]); }}><i className={`${styles.fa_solid} ${styles.fa_chevron_right}`}></i></button>
+                    <button id="prevButton" ref={prevButtonRef} className={`${styles.prevButton} ${currentIndex == 1 ? styles.wave_pear_effect : styles.wave_apple_effect}`} onClick={() => { prevButtonClick(); }}><i className={`${currentIndex == 1 ? styles.peach_color : styles.apple_color}`}>&lt;</i></button>
+                    <button id="nextButton" ref={nextButtonRef} className={currentIndex == 1 ? styles.wave_exotic_effect : styles.wave_apple_effect} onClick={() => { nextButtonClick(); }}><i className={`${currentIndex == 1 ? styles.exotic_color : styles.apple_color}`}>&gt;</i></button>
                 </div>
                 <div className={styles.text}>
                     <h1 className={styles.h1} id="h1">Pear</h1>

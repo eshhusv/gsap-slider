@@ -41,6 +41,10 @@ button:focus,
     border: none;
 }
 
+i {
+    font-size: 54px;
+}
+
 /* Typography */
 h1 {
     font-family: "Lexend";
@@ -231,6 +235,34 @@ button {
 
 .wave {
     animation: wave-apple-effect 4s linear infinite;
+    animation-direction: normal;
+}
+
+.wave_pear_effect {
+    animation: wave-pear-effect 4s linear infinite;
+    animation-direction: normal;
+}
+
+.pear_color {
+    color: var(--pear-background);
+}
+
+.apple_color {
+    color: var(--apple-background);
+}
+
+.exotic_color {
+    color: var(--exotic-background);
+}
+
+
+.wave_apple_effect {
+    animation: wave-apple-effect 4s linear infinite;
+    animation-direction: normal;
+}
+
+.wave_exotic_effect {
+    animation: wave-exotic-effect 4s linear infinite;
     animation-direction: normal;
 }
 
