@@ -47,10 +47,12 @@ i {
 
 /* Typography */
 h1 {
+    text-align: center;
     font-family: "Lexend";
-    font-size: 449px !important;
+    font-size: 350px !important;
     line-height: normal !important;
     color: var(--white-color) !important;
+    width: 99vw;
     margin: 0 !important;
 }
 
@@ -86,12 +88,12 @@ h1 {
 
 /* Cane Image and Wrapper Image */
 .cane_image {
-    max-width: 265px;
+    max-width: 583px;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    mask-image: url(https://www.yudiz.com/codepen/fruity/cane.svg);
+    mask-image: url(../../assets/beercan.png);
     -webkit-mask-repeat: no-repeat;
     mask-repeat: no-repeat;
     -webkit-mask-position: center center;
@@ -102,16 +104,21 @@ h1 {
 }
 
 .cane_image img {
-    width: 100%;
+    width: 300px;
 }
 
 .cane_labels {
     position: absolute;
-    top: 0;
+    top: 10px;
     left: 0;
-    width: 300% !important;
+    height: 582px;
+    width: 400% !important;
     mix-blend-mode: multiply;
     transition: all ease-in-out 0.3s;
+}
+
+.can {
+    height: 615px;
 }
 
 /*Fruits Images */
@@ -207,6 +214,10 @@ h1 {
     background-color: var(--exotic-background);
 }
 
+.section:nth-child(4) {
+    background-color: var(--four-background);
+}
+
 /* Add this to your CSS */
 /* Buttons */
 button {
@@ -266,6 +277,11 @@ button {
     animation-direction: normal;
 }
 
+.wave_four_effect {
+    animation: wave-four-effect 4s linear infinite;
+    animation-direction: normal;
+}
+
 @keyframes wave-pear-effect {
     0% {
         box-shadow: 0 0 0 0px var(--pear-background),
@@ -315,6 +331,26 @@ button {
     40% {
         box-shadow: 0 0 0 50px rgba(60, 41, 188, 0),
             0 0 0 0px var(--exotic-background);
+    }
+
+    80% {
+        box-shadow: 0 0 0 50px rgba(60, 41, 188, 0), 0 0 0 30px rgba(0, 0, 0, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0px rgba(60, 41, 188, 0), 0 0 0 30px rgba(0, 230, 118, 0);
+    }
+}
+
+@keyframes wave-four-effect {
+    0% {
+        box-shadow: 0 0 0 0px var(--four-background),
+            0 0 0 0px var(--four-background);
+    }
+
+    40% {
+        box-shadow: 0 0 0 50px rgba(60, 41, 188, 0),
+            0 0 0 0px var(--four-background);
     }
 
     80% {
