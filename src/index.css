@@ -1,15 +1,15 @@
 :root {
-  --pear-can: #e6ffde;
-  --pear-logo: #c1eb5f;
-  --apple-can: #f2675a;
-  --apple-logo: #ec4458;
-  --exotic-can: #9590f1;
+  --second-can: #e6ffde;
+  --second-logo: #303a18;
+  --third-can: #f2675a;
+  --third-logo: #575334;
+  --first-can: #9590f1;
   --black-color: #000000;
   --white-color: #ffffff;
-  --exotic-logo: #6464ff;
+  --first-logo: #6464ff;
   --four-logo: #aa4124;
-  --pear-background: #99ad6c;
-  --apple-background: #ffb2b2;
-  --exotic-background: #c1bff2;
+  --second-background: #a0853b;
+  --third-background: #d8cd85;
+  --first-background: #c1bff2;
   --four-background: #612b1b;
 }

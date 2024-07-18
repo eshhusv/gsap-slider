@@ -2,8 +2,8 @@ import { useEffect, useRef, useState } from 'react';
 import styles from './Gasp.module.scss';
 import gsap from 'gsap';
 
-import beercan from '../../assets/beercan.png';
-import beerlables from '../../assets/beerslables.png';
+import beerlables from '../../assets/bottle-pattern-01.svg';
+import beercan from '../../assets/bottle-pattern-02.svg';
 
 import malt1 from '../../assets/malt1.png';
 import malt2 from '../../assets/malt2.png';
@@ -15,25 +15,20 @@ import malt7 from '../../assets/malt7.png';
 import malt8 from '../../assets/malt8.png';
 
 import hops1 from '../../assets/hops1.png';
-import hops2 from '../../assets/hops2.png';
+import hops2 from '../../assets/hops8.png';
 import hops3 from '../../assets/hops3.png';
 import hops4 from '../../assets/hops4.png';
-import hops5 from '../../assets/hops5.png';
-import hops6 from '../../assets/hops6.png';
-import hops7 from '../../assets/hops7.png';
-import hops8 from '../../assets/hops8.png';
 
 
 function Gasp() {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [currentPosition, setCurrentPosition] = useState(0);
 
-    const h1Texts = ["Beer one", "Beer two", "Beer three", "Beer four"];
+    const h1Texts = ["Beer one", "Beer two", "Beer three"];
     let logoColors = [
-        "var(--pear-logo)",
-        "var(--apple-logo)",
-        "var(--exotic-logo)",
-        "var(--four-logo)"
+        "var(--first-logo)",
+        "var(--third-logo)",
+        "var(--second-logo)",
     ];
     const prevButtonRef = useRef<HTMLButtonElement>(null);
     const prevButton = document.getElementById("prevButton") as HTMLDivElement;
@@ -93,7 +88,7 @@ function Gasp() {
 
 
     const nextButtonClick = () => {
-        if (currentPosition > -300) {
+        if (currentPosition > -200) {
             setCurrentPosition(currentPosition - 100);
             if (caneLabels !== null && sectionContainer !== null) {
                 caneLabels.style.left = `${currentPosition}%`;
@@ -140,10 +135,8 @@ function Gasp() {
         gsap.from(fruit_image.current, { y: "100vh", delay: 0.5 });
     };
 
-    const conditionforleft1 = currentIndex == 1 ? styles.wave_pear_effect : styles.wave_apple_effect;
-    const conditionforleft2 = currentIndex == 2 ? styles.wave_apple_effect : styles.wave_exotic_effect;
-    const conditionforright1 = currentIndex == 1 ? styles.wave_exotic_effect : styles.wave_apple_effect;
-    const conditionforright2 = currentIndex == 2 ? styles.wave_four_effect : styles.wave_apple_effect;
+    const conditionforleft1 = currentIndex == 1 ? styles.wave_exotic_effect : styles.wave_pear_effect;
+    const conditionforright1 = currentIndex == 1 ? styles.wave_apple_effect : styles.wave_pear_effect;
 
     return (
         <div className={styles.body}>
@@ -154,8 +147,8 @@ function Gasp() {
             </header>
             <main>
                 <div>
-                    <button id="prevButton" ref={prevButtonRef} className={`${styles.prevButton} ${conditionforleft1} ${conditionforleft2}`} onClick={() => { prevButtonClick(); }}><i className={`${currentIndex == 1 ? styles.peach_color : styles.apple_color}`}>&lt;</i></button>
-                    <button id="nextButton" ref={nextButtonRef} className={`${conditionforright1} ${conditionforright2}`} onClick={() => { nextButtonClick(); }}><i className={`${currentIndex == 1 ? styles.exotic_color : styles.apple_color}`}>&gt;</i></button>
+                    <button id="prevButton" ref={prevButtonRef} className={`${styles.prevButton} ${conditionforleft1} `} onClick={() => { prevButtonClick(); }}><i className={`${currentIndex == 1 ? styles.peach_color : styles.apple_color}`}>&lt;</i></button>
+                    <button id="nextButton" ref={nextButtonRef} className={`${conditionforright1} `} onClick={() => { nextButtonClick(); }}><i className={`${currentIndex == 1 ? styles.exotic_color : styles.apple_color}`}>&gt;</i></button>
                 </div>
                 <div className={styles.text}>
                     <h1 className={styles.h1} id="h1">Beer 1</h1>
@@ -188,14 +181,6 @@ function Gasp() {
                                 <div className={`${styles.image_two} ${styles.fruit_image}`} ref={(ref) => fruit_image.current.push(ref as HTMLDivElement)}><img ref={(ref) => fruit_image__img.current.push(ref as HTMLImageElement)} src={malt6} alt="exotic-image" /></div>
                                 <div className={`${styles.image_three} ${styles.fruit_image}`} ref={(ref) => fruit_image.current.push(ref as HTMLDivElement)}><img ref={(ref) => fruit_image__img.current.push(ref as HTMLImageElement)} src={malt7} alt="exotic-image" /></div>
                                 <div className={`${styles.image_four} ${styles.fruit_image}`} ref={(ref) => fruit_image.current.push(ref as HTMLDivElement)}><img ref={(ref) => fruit_image__img.current.push(ref as HTMLImageElement)} src={malt8} alt="exotic-image" /></div>
-                            </div>
-                        </section>
-                        <section className={styles.section} id="section4">
-                            <div className={styles.fruit_images}>
-                                <div className={`${styles.image_one} ${styles.fruit_image}`} ref={(ref) => fruit_image.current.push(ref as HTMLDivElement)}><img ref={(ref) => fruit_image__img.current.push(ref as HTMLImageElement)} src={hops5} alt="exotic-image" /></div>
-                                <div className={`${styles.image_two} ${styles.fruit_image}`} ref={(ref) => fruit_image.current.push(ref as HTMLDivElement)}><img ref={(ref) => fruit_image__img.current.push(ref as HTMLImageElement)} src={hops6} alt="exotic-image" /></div>
-                                <div className={`${styles.image_three} ${styles.fruit_image}`} ref={(ref) => fruit_image.current.push(ref as HTMLDivElement)}><img ref={(ref) => fruit_image__img.current.push(ref as HTMLImageElement)} src={hops7} alt="exotic-image" /></div>
-                                <div className={`${styles.image_four} ${styles.fruit_image}`} ref={(ref) => fruit_image.current.push(ref as HTMLDivElement)}><img ref={(ref) => fruit_image__img.current.push(ref as HTMLImageElement)} src={hops8} alt="exotic-image" /></div>
                             </div>
                         </section>
                     </div>

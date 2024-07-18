@@ -76,7 +76,7 @@ header {
 }
 
 .logo {
-    color: var(--pear-logo);
+    color: var(--second-logo);
 }
 
 h1 {
@@ -88,10 +88,10 @@ h1 {
 
 /* Cane Image and Wrapper Image */
 .cane_image {
-    max-width: 583px;
     position: absolute;
     top: 50%;
     left: 50%;
+
     transform: translate(-50%, -50%);
     mask-image: url(../../assets/beercan.png);
     -webkit-mask-repeat: no-repeat;
@@ -104,15 +104,15 @@ h1 {
 }
 
 .cane_image img {
-    width: 300px;
+
+    margin-top: 10px;
 }
 
 .cane_labels {
     position: absolute;
     top: 10px;
     left: 0;
-    height: 582px;
-    width: 400% !important;
+    width: 300% !important;
     mix-blend-mode: multiply;
     transition: all ease-in-out 0.3s;
 }
@@ -203,15 +203,15 @@ h1 {
     position: relative;
     overflow: hidden;
     z-index: -1;
-    background: var(--pear-background);
+    background: var(--first-background);
 }
 
 .section:nth-child(2) {
-    background-color: var(--apple-background);
+    background-color: var(--third-background);
 }
 
 .section:nth-child(3) {
-    background-color: var(--exotic-background);
+    background-color: var(--second-background);
 }
 
 .section:nth-child(4) {
@@ -232,7 +232,7 @@ button {
     background-color: var(--white-color);
     border: none;
     font-size: 40px;
-    color: var(--apple-logo);
+    color: var(--third-logo);
     transition: all ease-in-out 0.3s;
     cursor: pointer;
 }
@@ -245,7 +245,7 @@ button {
 }
 
 .wave {
-    animation: wave-apple-effect 4s linear infinite;
+    animation: wave-third-effect 4s linear infinite;
     animation-direction: normal;
 }
 
@@ -255,42 +255,42 @@ button {
 }
 
 .pear_color {
-    color: var(--pear-background);
+    color: var(--second-background);
 }
 
 .apple_color {
-    color: var(--apple-background);
+    color: var(--third-background);
 }
 
 .exotic_color {
-    color: var(--exotic-background);
+    color: var(--first-background);
 }
 
 
 .wave_apple_effect {
-    animation: wave-apple-effect 4s linear infinite;
+    animation: wave-third-effect 4s linear infinite;
     animation-direction: normal;
 }
 
 .wave_exotic_effect {
-    animation: wave-exotic-effect 4s linear infinite;
+    animation: wave-first-effect 4s linear infinite;
     animation-direction: normal;
 }
 
-.wave_four_effect {
-    animation: wave-four-effect 4s linear infinite;
+.wave_pear_effect {
+    animation: wave-second-effect 4s linear infinite;
     animation-direction: normal;
 }
 
-@keyframes wave-pear-effect {
+@keyframes wave-second-effect {
     0% {
-        box-shadow: 0 0 0 0px var(--pear-background),
-            0 0 0 0px var(--pear-background);
+        box-shadow: 0 0 0 0px var(--third-background),
+            0 0 0 0px var(--third-background);
     }
 
     40% {
         box-shadow: 0 0 0 50px rgba(60, 41, 188, 0),
-            0 0 0 0px var(--pear-background);
+            0 0 0 0px var(--third-background);
     }
 
     80% {
@@ -302,15 +302,15 @@ button {
     }
 }
 
-@keyframes wave-apple-effect {
+@keyframes wave-third-effect {
     0% {
-        box-shadow: 0 0 0 0px var(--apple-background),
-            0 0 0 0px var(--apple-background);
+        box-shadow: 0 0 0 0px var(--second-background),
+            0 0 0 0px var(--second-background);
     }
 
     40% {
         box-shadow: 0 0 0 50px rgba(60, 41, 188, 0),
-            0 0 0 0px var(--apple-background);
+            0 0 0 0px var(--second-background);
     }
 
     80% {
@@ -322,15 +322,15 @@ button {
     }
 }
 
-@keyframes wave-exotic-effect {
+@keyframes wave-first-effect {
     0% {
-        box-shadow: 0 0 0 0px var(--exotic-background),
-            0 0 0 0px var(--exotic-background);
+        box-shadow: 0 0 0 0px var(--first-background),
+            0 0 0 0px var(--first-background);
     }
 
     40% {
         box-shadow: 0 0 0 50px rgba(60, 41, 188, 0),
-            0 0 0 0px var(--exotic-background);
+            0 0 0 0px var(--first-background);
     }
 
     80% {
@@ -427,7 +427,11 @@ button {
     }
 
     .cane_image {
-        max-width: 250px;
+        height: 620px;
+    }
+
+    .cane_labels {
+        height: 570px;
     }
 
     button {
@@ -499,7 +503,7 @@ button {
 
 @media screen and (max-width: 575px) {
     h1 {
-        font-size: 100px !important;
+        font-size: 140px !important;
     }
 
     .cane_image::after {
