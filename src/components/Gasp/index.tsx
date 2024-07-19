@@ -147,11 +147,11 @@ function Gasp() {
             </header>
             <main>
                 <div>
-                    <button id="prevButton" ref={prevButtonRef} className={`${styles.prevButton} ${conditionforleft1} `} onClick={() => { prevButtonClick(); }}><i className={`${currentIndex == 1 ? styles.peach_color : styles.apple_color}`}>&lt;</i></button>
-                    <button id="nextButton" ref={nextButtonRef} className={`${conditionforright1} `} onClick={() => { nextButtonClick(); }}><i className={`${currentIndex == 1 ? styles.exotic_color : styles.apple_color}`}>&gt;</i></button>
+                    <button id="prevButton" ref={prevButtonRef} className={`${styles.prevButton} ${conditionforleft1} `} onClick={() => { prevButtonClick(); }}><i className={`${currentIndex == 1 ? styles.peach_color : styles.apple_color} ${styles.prevButton}`}></i></button>
+                    <button id="nextButton" ref={nextButtonRef} className={`${conditionforright1} `} onClick={() => { nextButtonClick(); }}><i className={`${currentIndex == 1 ? styles.exotic_color : styles.apple_color}`}></i></button>
                 </div>
                 <div className={styles.text}>
-                    <h1 className={styles.h1} id="h1">Beer 1</h1>
+                    <h1 className={styles.h1} id="h1">Beer one</h1>
                     <div className={styles.cane_image}>
                         <img src={beercan} alt="" className={styles.can} />
                         <img src={beerlables} alt="" id="cane_labels" className={styles.cane_labels} style={{ left: `${currentPosition}%` }} />

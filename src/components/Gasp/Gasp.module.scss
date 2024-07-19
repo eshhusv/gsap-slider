@@ -54,6 +54,7 @@ h1 {
     color: var(--white-color) !important;
     width: 99vw;
     margin: 0 !important;
+    user-select: none;
 }
 
 h2 {
@@ -76,7 +77,7 @@ header {
 }
 
 .logo {
-    color: var(--second-logo);
+    color: var(--first-logo);
 }
 
 h1 {
@@ -91,9 +92,7 @@ h1 {
     position: absolute;
     top: 50%;
     left: 50%;
-
     transform: translate(-50%, -50%);
-    mask-image: url(../../assets/beercan.png);
     -webkit-mask-repeat: no-repeat;
     mask-repeat: no-repeat;
     -webkit-mask-position: center center;
@@ -101,17 +100,11 @@ h1 {
     -webkit-mask-size: 100% auto;
     mask-size: 100% auto;
     overflow: hidden;
-}
-
-.cane_image img {
-
-    margin-top: 10px;
+    mask-image: url(../../assets/bottle-pattern-02.svg);
 }
 
 .cane_labels {
     position: absolute;
-    top: 10px;
-    left: 0;
     width: 300% !important;
     mix-blend-mode: multiply;
     transition: all ease-in-out 0.3s;
@@ -235,6 +228,7 @@ button {
     color: var(--third-logo);
     transition: all ease-in-out 0.3s;
     cursor: pointer;
+    background-image: url(../../assets/expand_less_right.svg);
 }
 
 .prevButton {
@@ -242,6 +236,7 @@ button {
     right: unset;
     display: none;
     transition: all ease-in 0.3s;
+    background-image: url(../../assets/expand_less_left.svg);
 }
 
 .wave {
